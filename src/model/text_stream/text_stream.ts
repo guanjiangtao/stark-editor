@@ -13,10 +13,19 @@ export class TextStream {
 
     private _rangeList: Map<string, TextRange> = new Map<string, TextRange>();
 
-    constructor() {
+    private static _instance: TextStream;
+
+    private constructor() {
         const textId = StringUtil.getRandomId();
         this._textMap.set(textId, '\0x1'); // 首行隐藏字符
         this._rangeList.set(textId, new TextRange(0, 0, new TextProperty()));
+    }
+
+    public static instance(): TextStream {
+        if (!this._instance) {
+            this._instance = new TextStream();
+        }
+        return this._instance;
     }
 
     public get text(): string {
