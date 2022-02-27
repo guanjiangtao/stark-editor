@@ -12,6 +12,6 @@ export class BaseProperty {
     }
 
     public updateProperty() {
-
+        // TODO: update property
     }
 }
