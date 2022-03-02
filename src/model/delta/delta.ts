@@ -12,7 +12,10 @@ export class Delta {
     private textStream = TextStream.instance();
 
     public insertText(text: string, textRange: TextRange): void {
-
+        if (text === '') {
+            return;
+        }
+        const textIndex = this.textStream.text;
     }
 
     public deleteText(start: number, length: number): void {
