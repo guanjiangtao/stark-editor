@@ -1,4 +1,5 @@
 import { FontProperty } from "./font_property";
+import { TextRange } from "./text_range";
 
 /**
  * 属性类型
@@ -37,3 +38,11 @@ export enum FontPropertyType {
 export type BasePropetryType = TextPropertyType | FontPropertyType;
 
 export type BasePropertyTypes = boolean | string | number | FontProperty;
+
+/**
+ * 文字节点
+ */
+export interface TextNode {
+    text: string;
+    textRange: TextRange;
+}

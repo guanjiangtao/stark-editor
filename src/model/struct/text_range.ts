@@ -17,10 +17,10 @@ export class TextRange {
      */
     private _property: TextProperty;
 
-    constructor(start: number, end: number, property: TextProperty) {
+    constructor(start: number, end: number, property?: TextProperty) {
         this._start = start;
         this._end = end;
-        this._property = property;
+        this._property = property ? property : new TextProperty();
     }
 
     public start(): number {
@@ -33,6 +33,10 @@ export class TextRange {
 
     public property(): TextProperty {
         return this._property;
+    }
+    
+    public len(): number {
+        return this._end - this._start;
     }
 
 }

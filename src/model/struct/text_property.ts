@@ -118,7 +118,6 @@ export class TextProperty extends BaseProperty {
     public set font(font: FontProperty) {
         this.setProperty(FontPropertyType.font, font);
     }
-
 }
 
 
