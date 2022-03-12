@@ -6,13 +6,13 @@ import { TextRange } from "../struct/text_range";
 /**
  * 文字流
  */
-export class TextStream {
+export class TextModel {
     /**
      * 文字流的字符串
      */
     private _textMap: Map<string, TextNode> = new Map<string, TextNode>();
 
-    private static _instance: TextStream;
+    private static _instance: TextModel;
     /**
      * 初始化文字流
      */
@@ -26,9 +26,9 @@ export class TextStream {
         this._textMap.set(textId, node); // 首行隐藏字符
     }
 
-    public static instance(): TextStream {
+    public static createModel(): TextModel {
         if (!this._instance) {
-            this._instance = new TextStream();
+            this._instance = new TextModel();
         }
         return this._instance;
     }
@@ -45,7 +45,7 @@ export class TextStream {
         return this.text.length;
     }
 
-    public setText(attr: string, pos: number, id?: string) {
+    public setText(attr: string, pos?: number, id?: string) {
         if (id && this._textMap.has(id)) {
             const oldNode = this._textMap.get(id)!;
             const node: TextNode = {
@@ -56,7 +56,7 @@ export class TextStream {
             return id;
         } else {
             const id = StringUtil.getRandomId();
-            const insertPos = pos < 0 ? this.getTextLength : this.getTextLength + pos;
+            const insertPos = this.getTextLength;
             const node: TextNode = {
                 textRange: new TextRange(insertPos, attr.length),
                 text: attr,

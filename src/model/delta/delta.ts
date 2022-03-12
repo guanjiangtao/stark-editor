@@ -1,6 +1,6 @@
 import { TextProperty } from "../struct/text_property";
 import { TextRange } from "../struct/text_range";
-import { TextStream } from "../text_stream/text_stream";
+import { TextStream } from "../text_model/text_model";
 
 
 /**
