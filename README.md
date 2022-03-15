@@ -67,8 +67,8 @@ deleteText(id, range);
 
 test('deleteText', () => {
     // origin text: 你不好吗
-model.deleteText(id, new TextRange(0, 1));
-expect(model.text).toBe('不好吗');
+ model.deleteText(id, new TextRange(0, 1));
+ expect(model.text).toBe('不好吗');
 });
 ```
 
