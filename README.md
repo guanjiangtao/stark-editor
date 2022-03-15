@@ -53,7 +53,24 @@ model：编辑器数据层
 
 ## 更新日志
 
-// todo
+### 3.15
+
+- 新增deleteText接口
+
+```typescript
+/**
+ * 删除文字
+ * @param textRange 删除范围
+ * @param id 当前文字ID
+ */
+deleteText(id, range);
+
+test('deleteText', () => {
+    // origin text: 你不好吗
+		model.deleteText(id, new TextRange(0, 1));
+		expect(model.text).toBe('不好吗');
+});
+```
 
 ## RoadMap
 
