@@ -12,6 +12,8 @@ export class TextRange {
      * 结束为止
      */
     private _end: number;
+
+    private _len: number;
     /**
      * 该位置对应的属性
      */
@@ -35,8 +37,15 @@ export class TextRange {
         return this._property;
     }
     
-    public len(): number {
-        return this._end - this._start;
+    public get len(): number {
+        return this._start + this._len;
     }
 
+    public setStart(start: number) {
+        this._start = start;
+    }
+
+    public setLen(len: number) {
+        this._len = len;
+    }
 }

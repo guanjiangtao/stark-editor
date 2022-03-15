@@ -65,4 +65,21 @@ export class TextModel {
             return id;
         }
     }
+
+    /**
+     * 删除文字
+     * @param textRange 删除范围
+     * @param id 当前文字ID
+     */
+    public deleteText(id: string, textRange?: TextRange) {
+        if (textRange) {
+            // 删除范围
+            const start = textRange.start();
+            const end = textRange.end();
+            const oldNode = this._textMap.get(id)!;
+            oldNode.text = oldNode.text.slice(0, start) + oldNode.text.slice(end);
+            oldNode.textRange.setStart(start);
+            oldNode.textRange.setLen(oldNode.text.length);
+        }
+    }
 }

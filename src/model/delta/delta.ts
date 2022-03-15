@@ -1,6 +1,6 @@
 import { TextProperty } from "../struct/text_property";
 import { TextRange } from "../struct/text_range";
-import { TextStream } from "../text_model/text_model";
+import { TextModel } from "../text_model/text_model";
 
 
 /**
@@ -9,13 +9,13 @@ import { TextStream } from "../text_model/text_model";
  */
 export class Delta {
     // 文字流对象
-    private textStream = TextStream.instance();
+    private textModel = TextModel.createModel();
 
     public insertText(text: string, textRange: TextRange): void {
         if (text === '') {
             return;
         }
-        const textIndex = this.textStream.text;
+        const textIndex = this.textModel.text;
     }
 
     public deleteText(start: number, length: number): void {
