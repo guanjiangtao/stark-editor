@@ -82,4 +82,14 @@ export class TextModel {
             oldNode.textRange.setLen(oldNode.text.length);
         }
     }
+
+    /**
+     * 修改属性
+     * @param id 
+     * @param textRange 
+     * @param property 
+     */
+    public modifyProperty(id: string, textRange: TextRange, property: TextProperty) {
+        
+    }
 }
